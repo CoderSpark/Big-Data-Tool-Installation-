@@ -1,0 +1,32 @@
+Step 1: Download Kafka
+
+wget https://downloads.apache.org/kafka/2.5.0/kafka_2.12-2.5.0.tgz
+
+Step 2 : Extraxt Kafka
+
+tar -xvf kafka_2.12-2.5.0.tgz
+
+cd kafka_2.12-2.5.0
+
+Step 3:Start Server
+
+Zookeeper Server:
+bin/zookeeper-server-start.sh config/zookeeper.properties
+
+Kafka Server
+bin/kafka-server-start.sh config/server.properties
+
+Step 4: Create a topic
+
+bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic Sample
+
+Check list of topic:
+bin/kafka-topics.sh --list --bootstrap-server localhost:9092
+
+Step 5: Start Producer or Send some Message
+
+bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic Sample
+
+Step 6:  Start a consumer
+
+ bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic Sample --from-beginning
