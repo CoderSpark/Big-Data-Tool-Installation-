@@ -1,0 +1,44 @@
+Apache Pig Installation on Linux
+
+Step 1:  Download Pig tar file.
+
+Command: wget http://www-us.apache.org/dist/pig/pig-0.16.0/pig-0.16.0.tar.gz
+
+Step 2: Extract the tar file using tar command. 
+
+Command: tar -xzf pig-0.16.0.tar.gz 
+
+Command: ls
+
+
+Step 3: Edit the “.bashrc” file to update the environment variables of Apache Pig. We are setting it so that we can access pig from any directory, we need not go to pig directory to execute pig commands. Also, if any other application is looking for Pig, it will get to know the path of Apache Pig from this file.
+
+Command:  sudo gedit .bashrc
+
+Add the following at the end of the file:
+
+# Set PIG_HOME
+
+export PIG_HOME=/home/paddy/pig-0.16.0
+export PATH=$PATH:/home/paddy/pig-0.16.0/bin
+export PIG_CLASSPATH=$HADOOP_CONF_DIR
+
+Also, make sure that hadoop path is also set.
+
+Run below command to make the changes get updated in same terminal.
+
+Command: source .bashrc
+
+Step 4: Check pig version. This is to test that Apache Pig got installed correctly. In case, you don’t get the Apache Pig version, you need to verify if you have followed the above steps correctly.
+
+Command: pig -version
+
+Step 5: Check pig help to see all the pig command options.
+
+Command: pig -help
+
+Step 6: Run Pig to start the grunt shell. Grunt shell is used to run Pig Latin scripts.
+
+Command: pig
+
+
