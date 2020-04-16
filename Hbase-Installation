@@ -1,0 +1,60 @@
+HBase Installation Step By Step Guide
+
+1. Install Java 
+
+2. Install Hadoop2.x
+
+3. Install Hbase
+
+Download Hbase : wget http://apache.mirror.gtcomm.net/hbase/stable/hbase-1.2.5-bin.tar.gz
+
+4. Extract downloaded tar file
+
+tar -zxvf hbase-1.2.5-bin.tar.gz 
+
+5. Add these to .profile:
+
+.bashrc or /etc/profile
+
+export HBASE_HOME=/home/paddy/Hbase
+export PATH=$PATH:$HBASE_HOME/bin
+
+6.Edit JAVA_HOME in shell script hbase-env.sh under folder
+
+export JAVA_HOME=/usr/local/java //Java home path.
+
+7. HBase Configurations
+
+All the configuration files are under this folder /home/paddy/Hbase/conf/hbase-site.xml.
+
+<configuration>
+   <property>
+      <name>hbase.rootdir</name>
+      <value>hdfs://localhost:8030/hbase</value>
+   </property>
+	
+   <property>
+      <name>hbase.zookeeper.property.dataDir</name>
+      <value>/home/hadoop/zookeeper</value>
+   </property>
+   
+   <property>
+     <name>hbase.cluster.distributed</name>
+     <value>true</value>
+   </property>
+</configuration>
+
+
+8. start hbase shell
+
+cd /home/paddy/hbase/bin
+
+ls
+
+sh start-hbase.sh
+
+9. type hbase shell  
+
+Hbase shell      //Start hbase shell
+
+
